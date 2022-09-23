@@ -88,15 +88,18 @@
                         android:background="@color/background_color" />
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerVPhotosToDiary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_10sdp"
+                        android:nestedScrollingEnabled="false"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:spanCount="4"
                         tools:itemCount="5"
                         tools:listitem="@layout/layout_photos_item" />
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddPhoto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_10sdp"
@@ -161,6 +164,7 @@
                         android:background="@color/background_color" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutComments"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_10sdp"
@@ -217,10 +221,11 @@
                             android:id="@+id/aCDateDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:focusableInTouchMode="false"
-                            android:inputType="none" />
+                            android:drawablePadding="10dp"
+                            android:focusable="false"
+                            android:inputType="none"
+                            android:hint="2020-06-29"
+                            android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
