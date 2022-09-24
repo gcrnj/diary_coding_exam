@@ -34,7 +34,9 @@ class DiaryViewModel(application: Application) : AndroidViewModel(application) {
             value = ""
         }
 
-    var dateTimeMillis: MutableLiveData<Long> = MutableLiveData<Long>()
+    var dateTimeMillis: MutableLiveData<Long> = MutableLiveData<Long>().also {
+        it.value = 0
+    }
 
     var area: MutableLiveData<Int> = MutableLiveData<Int>()
         .apply {

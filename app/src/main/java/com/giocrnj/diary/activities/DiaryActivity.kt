@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -292,11 +293,16 @@ class DiaryActivity : BaseActivity(DiaryViewModel::class.java) {
                             viewModel.uris.value?.isEmpty() == true ||
                             viewModel.includeInGallery.value == null ||
                             viewModel.comment.value == null ||
+                            viewModel.comment.value?.isBlank() == true ||
                             viewModel.date.value == null ||
+                            viewModel.date.value?.isBlank() == true ||
+                            viewModel.area.value == null ||
                             viewModel.area.value == null ||
                             viewModel.category.value == null ||
                             viewModel.tags.value == null ||
-                            viewModel.linkToExistingEvent.value == null){
+                            viewModel.tags.value?.isBlank() == true ||
+                            viewModel.linkToExistingEvent.value == null
+                        ) {
 
                             //Show dialog
                             AlertDialog.Builder(
@@ -391,6 +397,13 @@ class DiaryActivity : BaseActivity(DiaryViewModel::class.java) {
                                 //"OK"
                                 setPositiveButton("Okay") { dialog, _ ->
                                     dialog.dismiss()
+                                    startActivity(
+                                        Intent(
+                                            this@DiaryActivity,
+                                            DiaryActivity::class.java
+                                        )
+                                    )
+                                    finish()
                                 }
                                 //SHOW
                                 show()
