@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Diary</string>
+    <string name="api_base_url">https://reqres.in/</string>
     <string name="new_diary">New Diary</string>
     <string name="add_to_site_diary">Add to site diary</string>
     <string name="add_a_photo">Add a photo</string>
@@ -12,4 +13,18 @@
     <string name="link_to_existing_event">Link to existing event?</string>
     <string name="tags">Tags</string>
     <string name="select_event">Select Event</string>
+    <string name="date">Date</string>
+    <string name="philippines">Philippines</string>
+
+    <string-array name="areas">
+        <item>Cebu</item>
+        <item>Davao</item>
+        <item>Pasig</item>
+    </string-array>
+
+    <string-array name="categories">
+        <item>Work</item>
+        <item>Home</item>
+        <item>Vacation</item>
+    </string-array>
 </resources>

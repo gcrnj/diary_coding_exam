@@ -4,7 +4,7 @@
     package="com.giocrnj.diary">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Diary"
         tools:targetApi="31">
         <activity
-            android:name=".DiaryActivity"
+            android:name=".activities.DiaryActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

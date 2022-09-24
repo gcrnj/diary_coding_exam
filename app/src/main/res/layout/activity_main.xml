@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context=".DiaryActivity">
+    tools:context=".activities.DiaryActivity">
 
     <include
         android:id="@+id/diaryToolBar"
@@ -21,6 +21,7 @@
         android:gravity="center_vertical"
         android:paddingStart="@dimen/_9sdp"
         android:paddingEnd="@dimen/_9sdp"
+        android:text="@string/philippines"
         app:drawableStartCompat="@drawable/ic_baseline_location_on_24"
         tools:text="@tools:sample/cities" />
 
@@ -124,7 +125,7 @@
                             android:text="@string/include_in_photo_gallery" />
 
                         <com.google.android.material.checkbox.MaterialCheckBox
-                            android:id="@+id/checkboxIncludeInGallery"
+                            android:id="@+id/checkboxIncludeInCamera"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -174,6 +175,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/comments"
+                            android:inputType="textCapSentences"
                             android:paddingStart="0dp"
                             android:paddingEnd="0dp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -210,7 +212,7 @@
                         android:background="@color/background_color" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tIDateDetails"
+                        android:id="@+id/layoutDateDetails"
                         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -222,67 +224,56 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawablePadding="10dp"
-                            android:focusable="false"
+                            android:hint="@string/date"
                             android:inputType="none"
-                            android:hint="2020-06-29"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tIArea"
+                        android:id="@+id/layoutArea"
                         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         app:boxBackgroundColor="@null">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                            android:id="@+id/aCArea"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:focusableInTouchMode="false"
                             android:hint="@string/select_area"
                             android:inputType="none" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tITaskCategory"
+                        android:id="@+id/layoutTaskCategory"
                         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         app:boxBackgroundColor="@null">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                            android:id="@+id/aCTaskCategory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:focusableInTouchMode="false"
                             android:hint="@string/task_category"
                             android:inputType="none" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tITags"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:id="@+id/layoutTags"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         app:boxBackgroundColor="@null">
 
-                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                            android:id="@+id/aCTags"
+                        <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:focusableInTouchMode="false"
                             android:hint="@string/tags"
-                            android:inputType="none" />
+                            android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Space
@@ -321,7 +312,8 @@
                             android:id="@+id/checkboxLinkToEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true" />
+                            android:layout_alignParentEnd="true"
+                            android:focusable="true" />
                     </RelativeLayout>
 
                     <View
@@ -332,7 +324,7 @@
                         android:background="@color/background_color" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tISelectEvent"
+                        android:id="@+id/layoutSelectEvent"
                         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -361,6 +353,18 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_10sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/add_a_photo"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 
